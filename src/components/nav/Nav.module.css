@@ -1,8 +1,29 @@
-.container {
-    display: flex;
-    justify-content: flex-end;
+nav {
     background-color: lightgreen;
-    padding: 15px;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
     margin-bottom: 20px;
+}
+
+nav img {
+    filter: hue-rotate(100deg);
+}
+
+.links {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(18, 158, 18);
+    padding: 10px;
+    margin: 0px 15px;
+}
+
+.links:hover {
+    color: white;
+    background-color: rgb(18, 158, 18);
+    border-radius: 10px;
+    padding: 10px;
 }

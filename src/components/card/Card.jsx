@@ -1,19 +1,20 @@
 import style from "./Card.module.css"
-//import styled from "styled-components"; 
+//import styled from "styled-components";
+import {Link} from "react-router-dom";
 
-export default function Card({name, species, image, gender, onClose}) {
+export default function Card(props) {
    return (
       <div className={style.container}>
          <div className={style.buttonContainer}>
-            <button onClick={onClose} className={style.button}>X</button>
+            <button onClick={props.onClose} className={style.button}>X</button>
          </div>
          <div className={style.imageContainer}>
-            <img src={image} alt="Not Found" /> 
-            <h2 className={style.name}>{name}</h2>
+            <img src={props.image} alt="Not Found" /> 
+            <Link to={`/detail/${props.id}`}> <h2 className={style.name}>{props.name}</h2></Link>
          </div>
          <div className={style.propsContainer}>
-            <h2>{species}</h2>
-            <h2>{gender}</h2>
+            <h2>{props.species}</h2>
+            <h2>{props.gender}</h2>
          </div>
       </div>
    );

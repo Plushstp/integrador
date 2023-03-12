@@ -8,18 +8,26 @@ const DivCards = styled.div `
 
 export default function Cards(props) {
    const { characters } = props;
+   let i=0;
    return (
       <DivCards>
-         {characters.map(({id, name, species, gender, image}) => (
-            <Card 
-               key={id}
-               name={name} 
-               species={species} 
-               gender={gender} 
-               image={image} 
-               onClose={() => props.onClose(id)} 
+         {characters.length === 0 ?
+         (<p style={{ color: "lightgreen", marginTop: "150px", fontSize: "30px" }}>
+            ¡Busca un personaje!
+         </p>)
+         :
+         (characters.map((e) => (
+            <Card
+               id={e.id} 
+               name={e.name} 
+               species={e.species} 
+               gender={e.gender} 
+               image={e.image} 
+               onClose={() => props.onClose(e.id)} 
+               key={i++}
             />
-         ))}
+         )))
+         }
       </DivCards>
    );
 }

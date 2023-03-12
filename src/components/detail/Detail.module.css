@@ -1,0 +1,20 @@
+.container {
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+    margin-top: 75px;
+}
+
+.styleButton {
+    background-color: green;
+    color: lightgreen;
+    border: 0px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 35px;
+    cursor: pointer;
+}
