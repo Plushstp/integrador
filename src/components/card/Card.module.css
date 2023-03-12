@@ -1,0 +1,68 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    height: 270px;
+    border: solid 2px rgb(18, 158, 18);
+    border-radius: 20px;
+    background-color: rgb(144, 238, 144, 0.5);
+    transition: all 1.5 ease;
+}
+
+.container:hover{
+    transform: scale(1.1);
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button{
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+    background-color: red;
+    color: khaki;
+}
+
+.button:hover{
+    background-color: khaki;
+    color: red;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 1.5 ease;
+}
+
+img{
+    width: 200px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.imageContainer{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.name{
+    background-color: rgb(144, 238, 144, 0.5);
+    position: absolute;
+    margin-bottom: 0px;
+    color: rgb(18, 158, 18);
+}
+
+.propsContainer{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(144, 238, 144,0.5);
+    margin: 0px;
+    color: rgb(18, 158, 18);
+    border-radius: 0 0 20px 20px;
+}
+
+.propsContainer h2 {
+    margin: 0;
+}

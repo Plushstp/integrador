@@ -4,6 +4,29 @@ import styled from 'styled-components';
 const DivCards = styled.div `
    display: flex;
    justify-content: space-evenly;
+`;
+
+export default function Cards(props) {
+   const { characters } = props;
+   return (
+      <DivCards>
+         {characters.map(({id, name, species, gender, image}) => (
+            <Card 
+               key={id}
+               name={name} 
+               species={species} 
+               gender={gender} 
+               image={image} 
+               onClose={() => props.onClose(id)} 
+            />
+         ))}
+      </DivCards>
+   );
+}
+
+/*const DivCards = styled.div `
+   display: flex;
+   justify-content: space-evenly;
    padding: 5px;
    width: screen;
    margin: auto;
@@ -28,4 +51,5 @@ export default function Cards(props) {
          ))}
       </DivCards>
    );
-}
+}*/
+

@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    background-color: whitesmoke;
+    font-family: cursive;
+    border-radius: 10px 0 0 10px;
+    border-color: rgb(144, 238, 144);
+    outline: none;
+}
+
+button{
+    border-radius: 0 10px 10px 0;
+    border-color: rgb(144, 238, 144, 0.5);
+    color: lightgreen;
+    background-color: rgb(18, 158, 18); 
+    font-family: cursive;
+}
+
+button:hover{
+    color: rgb(18, 158, 18);
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+.buttonRandom {
+    border-radius: 10px;
+    border-color: rgb(144, 238, 144, 0.5);
+    color: lightgreen;
+    background-color: rgb(18, 158, 18); 
+    font-family: cursive;
+}

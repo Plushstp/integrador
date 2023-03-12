@@ -1,12 +1,12 @@
+import React from "react";
 import SearchBar from "../searchbar/SearchBar";
-import style from "./Nav.modules.css";
+import style from "./Nav.module.css";
 
 export default function Nav(props){
     return (
-        <nav>
+        <div className={style.container}>
             <img src="https://i2.wp.com/laseptimapantalla.com/wp-content/uploads/2021/09/Rick_and_Morty_-_logo_English.png?fit=622%2C202&ssl=1" alt="Rick&Morty" width="15%" />
-            <SearchBar onSearch={props.onSearch} random={props.random} />
-        </nav>
-
+            <SearchBar onSearch={(characterID) => props.onSearch(characterID)} random={props.random}/>
+        </div>
     );
 }

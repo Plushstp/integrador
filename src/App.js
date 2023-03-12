@@ -3,13 +3,18 @@ import Cards from './components/cards/Cards.jsx'
 import Nav from './components/nav/Nav.jsx'
 import { useState } from 'react';
 
-function App () {
-
+function App ()  {
   const [characters, setCharacters] = useState([]);
-
-  function onClose(id){
-    setCharacters(characters.filter((element) => element.id !== id));
-  }
+  
+  /*CLASE FELI
+    const onSearch = (id) => {
+    fetch(`https://rickandmortyapi.com/api/character/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+         data.name ? setCharacters([...characters, data]): alert("Personaje no encontrado")
+         })
+         .catch((error) => console.log(error));
+  };*/
 
   function onSearch(character){
      fetch(`https://rickandmortyapi.com/api/character/${character}`)
@@ -25,6 +30,16 @@ function App () {
       });
   }
 
+  /* CLASE FELI
+    const onClose = (id) => {
+    const filtered = characters.filter((char) => char.id !== Number(id) )
+    setCharacters([...characters, filtered])
+  }*/
+
+  function onClose(id) {
+    setCharacters(characters.filter((element) => element.id !== id));
+  }
+  
   function random() {
     let randomId = Math.floor(Math.random() * 826);
     onSearch(randomId);
@@ -32,15 +47,15 @@ function App () {
 
   return (
     <div className='App' style={{ padding: '25px' }}>
-      <div>
-        <Nav onSearch={onSearch} random={random} />
-      </div>
-      <div>
-        <Cards characters={characters} onClose={onClose} />
-      </div>
-      
+      <Nav onSearch={onSearch} random={random}/>
+      <Cards characters={characters} onClose={onClose} />
     </div>
   );
 }
 
 export default App
+
+
+  
+
+  

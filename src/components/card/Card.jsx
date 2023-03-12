@@ -1,13 +1,25 @@
-import styled from "styled-components"; 
+import style from "./Card.module.css"
+//import styled from "styled-components"; 
 
-const DivCard = styled.div `
-   /* 
-   display: flex;
-   flex-direction: column;
-   box-shadow: 0 0 20px rgba(0, 2, 2) ->investigar
+export default function Card({name, species, image, gender, onClose}) {
+   return (
+      <div className={style.container}>
+         <div className={style.buttonContainer}>
+            <button onClick={onClose} className={style.button}>X</button>
+         </div>
+         <div className={style.imageContainer}>
+            <img src={image} alt="Not Found" /> 
+            <h2 className={style.name}>{name}</h2>
+         </div>
+         <div className={style.propsContainer}>
+            <h2>{species}</h2>
+            <h2>{gender}</h2>
+         </div>
+      </div>
+   );
+}
 
-   hover transform: scale(1.1) ->investigar
-   */
+/*const DivCard = styled.div `
    display: inline-block;
    background-color: #ecffe6;
    border-radius: 20px;
@@ -20,16 +32,9 @@ const DivCard = styled.div `
 `;
 
 const Button = styled.button `
-   /*
-   botton justify-content: flex-end;
-   */
-
-   /*margin: 10px 10px 0 0;*/
-   
    position: relative;
    top: 0px;
    left: 200px; 
-
    background-color: #ff4d4d;
    color: white;
    text-shadow: 1px 1px black;
@@ -85,4 +90,4 @@ export default function Card(props) {
          <img  src={props.image} alt="Not Found" /> 
       </DivCard>
    );
-}
+}*/
