@@ -4,23 +4,14 @@ import Nav from './components/nav/Nav.jsx';
 import About from './components/about/About.jsx';
 import Detail from './components/detail/Detail.jsx';
 import Error from './components/error/Error.jsx';
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import Form from './components/form/Form.jsx';
+import { useState, useEffect } from 'react';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 
 function App ()  {
   const [characters, setCharacters] = useState([]);
   
-  /*CLASE FELI
-    const onSearch = (id) => {
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-         data.name ? setCharacters([...characters, data]): alert("Personaje no encontrado")
-         })
-         .catch((error) => console.log(error));
-  };*/
-
   function onSearch(character){
      fetch(`https://rickandmortyapi.com/api/character/${character}`)
       .then((response) => response.json())
@@ -35,12 +26,7 @@ function App ()  {
       });
   }
 
-  /* CLASE FELI
-    const onClose = (id) => {
-    const filtered = characters.filter((char) => char.id !== Number(id) )
-    setCharacters([...characters, filtered])
-  }*/
-
+  
   function onClose(id) {
     setCharacters(characters.filter((element) => element.id !== id));
   }
@@ -50,15 +36,38 @@ function App ()  {
     onSearch(randomId);
   }
 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [access, setAccess] = useState(false);
+  const username = 'ejemplo@gmail.com';
+  const password = 'Alfi210119';
+
+  function login(userData) {
+    if (userData.password === password && userData.username === username) {
+      setAccess(true);
+      navigate('/home');
+    }
+  }
+
+  useEffect(() => {
+    !access && navigate('/');
+ }, [access]);
+
+  function logout(){
+    setAccess(false);
+  }
+
   return (
-    <div className='App' style={{ padding: '25px' }}>
-      <Nav onSearch={onSearch} random={random}/>
+    <div className="App" style={{ padding: "25px" }}>
+      {location.pathname !== '/' && <Nav onSearch={onSearch} random={random} logout={logout}/>}
 
       <Routes>
-        <Route exact path='/home' element={<Cards characters={characters} onClose={onClose}/>} />
-        <Route exact path='/about' element={<About/>} />
-        <Route exact path='/detail/:detailId' element={<Detail/>} />
-        <Route path='*' element={<Error/>} />
+        <Route exact path='/' element={<Form login={login}/>}></Route>
+        <Route exact path='/home' element={<Cards characters={characters} onClose={onClose}/>}></Route>
+        <Route exact path='/about' element={<About/>}></Route>
+        <Route exact path='/detail/:detailId' element={<Detail/>}></Route>
+        <Route path='*' element={<Error/>}></Route>
+        <Route> </Route>
       </Routes>
       
     </div>
@@ -66,8 +75,3 @@ function App ()  {
 }
 
 export default App
-
-
-  
-
-  

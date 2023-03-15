@@ -1,8 +1,8 @@
 .container{
     display: flex;
     flex-direction: column;
-    width: 230px;
-    height: 270px;
+    width: 250px;
+    height: 325px;
     border: solid 2px rgb(18, 158, 18);
     border-radius: 20px;
     background-color: rgb(144, 238, 144, 0.5);
@@ -49,9 +49,9 @@ img{
 
 .name{
     background-color: rgb(144, 238, 144, 0.5);
-    position: absolute;
-    margin-bottom: 0px;
-    color: rgb(18, 158, 18);
+    position:initial;
+    margin-top: 0px;
+    color: darkgreen;
 }
 
 .propsContainer{
@@ -59,7 +59,7 @@ img{
     justify-content: space-evenly;
     background-color: rgb(144, 238, 144,0.5);
     margin: 0px;
-    color: rgb(18, 158, 18);
+    color:darkviolet;
     border-radius: 0 0 20px 20px;
 }
 
