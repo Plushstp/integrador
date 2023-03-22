@@ -1,13 +1,13 @@
+import { useState, useEffect } from 'react';
 import './App.css';
 import Cards from './components/cards/Cards.jsx';
 import Nav from './components/nav/Nav.jsx';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import About from './components/about/About.jsx';
 import Detail from './components/detail/Detail.jsx';
 import Error from './components/error/Error.jsx';
 import Form from './components/form/Form.jsx';
-import { useState, useEffect } from 'react';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-
+import Favorites from './components/favorites/Favorites';
 
 function App ()  {
   const [characters, setCharacters] = useState([]);
@@ -40,7 +40,7 @@ function App ()  {
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
   const username = 'ejemplo@gmail.com';
-  const password = 'Alfi210119';
+  const password = 'A1b2c3d4';
 
   function login(userData) {
     if (userData.password === password && userData.username === username) {
@@ -51,7 +51,7 @@ function App ()  {
 
   useEffect(() => {
     !access && navigate('/');
- }, [access]);
+  }, [access]);
 
   function logout(){
     setAccess(false);
@@ -65,9 +65,9 @@ function App ()  {
         <Route exact path='/' element={<Form login={login}/>}></Route>
         <Route exact path='/home' element={<Cards characters={characters} onClose={onClose}/>}></Route>
         <Route exact path='/about' element={<About/>}></Route>
+        <Route exact path='/favorites' element={<Favorites/>}></Route>
         <Route exact path='/detail/:detailId' element={<Detail/>}></Route>
         <Route path='*' element={<Error/>}></Route>
-        <Route> </Route>
       </Routes>
       
     </div>
